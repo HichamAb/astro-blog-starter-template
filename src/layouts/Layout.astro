@@ -1,0 +1,138 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  price?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/images/og-image.jpg',
+  price = '3500',
+} = Astro.props;
+
+const siteURL = Astro.site ?? 'https://yourstore.pages.dev';
+const canonicalURL = new URL(Astro.url.pathname, siteURL);
+---
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- ═══ SEO Primary ═══ -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="باور بانك, شاحن متنقل, هوكو, HOCO J101B, 30000mAh, الجزائر, دفع عند الاستلام, COD" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="متجرك" />
+    <meta name="language" content="Arabic" />
+    <meta name="geo.region" content="DZ" />
+    <meta name="geo.placename" content="Algeria" />
+
+    <!-- ═══ Open Graph ═══ -->
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, siteURL)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ar_DZ" />
+    <meta property="og:site_name" content="متجرك" />
+    <meta property="product:price:amount" content={price} />
+    <meta property="product:price:currency" content="DZD" />
+
+    <!-- ═══ Twitter Card ═══ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, siteURL)} />
+
+    <!-- ═══ Schema.org JSON-LD ═══ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "HOCO J101B Astute 30000mAh",
+        "description": "باور بانك هوكو J101B أستوت 30000mAh بشحن سريع 22.5W",
+        "brand": { "@type": "Brand", "name": "HOCO" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "DZD",
+          "price": "3500",
+          "availability": "https://schema.org/InStock",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 7
+          }
+        }
+      }
+    </script>
+
+    <!-- ═══ Fonts (Cairo + Tajawal) ═══ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ═══ Favicon ═══ -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- ═══════════════════════════════════════════════
+         FACEBOOK PIXEL — أضف Pixel ID الخاص بك هنا
+         ═══════════════════════════════════════════════
+    
+    <script>
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)
+      }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      
+      // ← ضع Pixel ID هنا
+      fbq('init', 'XXXXXXXXXXXXXXX');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"/>
+    </noscript>
+    
+    ═══════════════════════════════════════════════ -->
+
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+
+    <!-- ═══ FB Pixel Events — إضافة أحداث التتبع ═══
+    
+    طريقة تتبع زر الطلب:
+    document.getElementById('order-form').addEventListener('submit', function() {
+      fbq('track', 'InitiateCheckout', {
+        value: 3500,
+        currency: 'DZD'
+      });
+    });
+    
+    طريقة تتبع إتمام الطلب (في صفحة الشكر):
+    fbq('track', 'Purchase', {
+      value: 3500,
+      currency: 'DZD'
+    });
+    
+    ═══════════════════════════════════════════════ -->
+  </body>
+</html>
