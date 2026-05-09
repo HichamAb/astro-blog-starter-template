@@ -1,131 +1,1139 @@
 ---
-// كود Astro
-const productName = "Power Bank Hoco J101B Astute";
-const price = "4900 دج";
-const oldPrice = "6500 دج";
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+
+const PRODUCT = {
+  name:        'HOCO J101B Astute',
+  capacity:    '30000mAh',
+  power:       '22.5W',
+  price:       4900,
+  oldPrice:    6200,
+  discount:    36,
+  currency:    'دج',
+  stock:       47,
+  delivery:    '24 - 72 ساعة',
+};
+
+const FEATURES = [
+  { icon: '⚡', title: 'شحن فائق السرعة 22.5W', desc: 'يشحن هاتفك من 0 إلى 100% في وقت قياسي بتقنية QC 3.0' },
+  { icon: '🔋', title: 'طاقة ضخمة 30000mAh', desc: 'تكفي لشحن هاتفك أكثر من 6 مرات متتالية دون انقطاع' },
+  { icon: '📱', title: 'متعدد المنافذ', desc: 'USB-A × 2 + USB-C، اشحن أجهزة متعددة في نفس الوقت' },
+  { icon: '🛡️', title: 'حماية ذكية شاملة', desc: 'حماية من الشحن الزائد، والحرارة، وقصر الدارة الكهربائية' },
+  { icon: '💡', title: 'شاشة LED ذكية', desc: 'تعرض نسبة الشحن المتبقية بدقة في أي وقت' },
+  { icon: '✈️', title: 'مثالي للسفر', desc: 'متين، خفيف الوزن، يناسب جميع مناسبات التنقل' },
+];
+
+const SPECS = [
+  { label: 'السعة',           value: '30000mAh / 111Wh' },
+  { label: 'الشحن الخارج',    value: 'USB-C PD 22.5W | USB-A QC3.0 18W' },
+  { label: 'الشحن الداخل',    value: 'USB-C 22.5W | Micro-USB 18W' },
+  { label: 'عدد المنافذ',     value: '3 منافذ (2×USB-A + 1×USB-C)' },
+  { label: 'شاشة العرض',      value: 'LED رقمية بنسبة مئوية' },
+  { label: 'الأبعاد',         value: '163 × 76 × 28 مم' },
+  { label: 'الوزن',           value: '521 غرام' },
+  { label: 'اللون',           value: 'أسود' },
+];
+
+const TESTIMONIALS = [
+  {
+    name: 'أحمد بن علي',
+    wilaya: 'الجزائر العاصمة',
+    rating: 5,
+    text: 'باور بانك خرافي! شحنت تيليفوني 5 مرات ما خلاش. الشحن السريع رهيب، الجودة تستاهل كل درهم 🔥',
+    avatar: '👨',
+  },
+  {
+    name: 'سارة محمودي',
+    wilaya: 'وهران',
+    rating: 5,
+    text: 'طلبته وصلني في يومين، التغليف ممتاز والمنتج أصلي 100%. نوصي بيه لكل واحد يسافر كثير',
+    avatar: '👩',
+  },
+  {
+    name: 'كريم بوعلام',
+    wilaya: 'قسنطينة',
+    rating: 5,
+    text: 'قريت الريفيو ترددت، لكن الصراحة فاق التوقعات. اللمسة الراقية والأداء ما يخيبش. برافو!',
+    avatar: '👨‍💼',
+  },
+];
+
+const WILAYAS = [
+  'أدرار','الشلف','الأغواط','أم البواقي','باتنة','بجاية','بسكرة','بشار',
+  'البليدة','البويرة','تمنراست','تبسة','تلمسان','تيارت','تيزي وزو','الجزائر',
+  'الجلفة','جيجل','سطيف','سعيدة','سكيكدة','سيدي بلعباس','عنابة','قالمة',
+  'قسنطينة','المدية','مستغانم','المسيلة','معسكر','ورقلة','وهران','البيض',
+  'إليزي','برج بوعريريج','بومرداس','الطارف','تندوف','تيسمسيلت','الوادي',
+  'خنشلة','سوق أهراس','تيبازة','ميلة','عين الدفلى','النعامة','عين تموشنت',
+  'غرداية','غليزان','تيميمون','برج باجي مختار','أولاد جلال','بني عباس',
+  'عين صالح','عين قزام','توقرت','جانت','المغير','المنيعة',
+];
 ---
 
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{productName} - أطلب الآن</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Cairo', sans-serif; }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-900">
+<Layout
+  title="باور بانك HOCO J101B Astute 30000mAh | شحن سريع 22.5W | دفع عند الاستلام"
+  description="اطلب الآن باور بانك هوكو J101B أستوت 30000mAh بشحن سريع 22.5W. التوصيل لجميع ولايات الجزائر، الدفع عند الاستلام. جودة أصلية مضمونة."
+  price="3500"
+>
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50 p-4 text-center">
-        <h1 class="text-xl font-black text-blue-700">TECH-STORE DZ</h1>
-    </nav>
+<!-- ████ TOP TICKER ████ -->
+<div class="ticker-wrap" aria-label="إعلان عرض">
+  <div class="ticker-inner">
+    {Array(2).fill([
+      '🚚 توصيل سريع لجميع الولايات',
+      '💳 الدفع عند الاستلام 100%',
+      '✅ منتج أصلي مضمون',
+      '⚡ شحن سريع 22.5W',
+      '📦 تغليف محكم وآمن',
+      '🎁 عرض محدود — اطلب الآن',
+    ]).flat().map((item) => (
+      <span class="ticker-item">
+        {item}
+        <span style="opacity:0.4">•</span>
+      </span>
+    ))}
+  </div>
+</div>
 
-    <main class="max-w-2xl mx-auto pb-20">
-        
-        <section class="bg-white p-4">
-            <div class="rounded-2xl overflow-hidden shadow-sm mb-4">
-                <img src="/hoco-j101.jpg" alt={productName} class="w-full h-auto object-cover">
-            </div>
-            <h2 class="text-2xl font-black mb-2 leading-tight">{productName} 30000mAh (22.5W)</h2>
-            <div class="flex items-center gap-3 mb-4">
-                <span class="text-3xl font-bold text-green-600">{price}</span>
-                <span class="text-gray-400 line-through text-lg">{oldPrice}</span>
-                <span class="bg-red-100 text-red-600 px-2 py-1 rounded-md text-sm font-bold">تخفيض 25%</span>
-            </div>
-            <p class="text-gray-600 leading-relaxed">
-                لا تقلق بعد الآن من نفاذ بطارية هاتفك! مع باور بانك Hoco العملاق بسعة 30 ألف mAh، يمكنك شحن هاتفك أكثر من 6 مرات بسرعة فائقة بفضل تقنية 22.5W.
-            </p>
-        </section>
-
-        <section class="p-4 space-y-3">
-            <h3 class="font-bold text-lg mb-2">لماذا تختار هذا المنتج؟</h3>
-            <div class="grid grid-cols-1 gap-3">
-                <div class="flex items-start gap-3 bg-blue-50 p-3 rounded-xl border border-blue-100">
-                    <span class="text-2xl">🔋</span>
-                    <div>
-                        <p class="font-bold">سعة عملاقة 30000mAh</p>
-                        <p class="text-sm text-gray-600">تكفيك لعدة أيام من الاستخدام المتواصل.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-3 bg-orange-50 p-3 rounded-xl border border-orange-100">
-                    <span class="text-2xl">⚡</span>
-                    <div>
-                        <p class="font-bold">شحن سريع جداً 22.5W</p>
-                        <p class="text-sm text-gray-600">يدعم تقنيات PD 3.0 و QC 3.0 لشحن أجهزتك في وقت قياسي.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-3 bg-green-50 p-3 rounded-xl border border-green-100">
-                    <span class="text-2xl">📱</span>
-                    <div>
-                        <p class="font-bold">3 مخارج للشحن</p>
-                        <p class="text-sm text-gray-600">اشحن 3 أجهزة في وقت واحد (2 USB + 1 Type-C).</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="order-form" class="p-4 mt-4">
-            <div class="bg-white p-6 rounded-3xl shadow-xl border-2 border-blue-600 relative">
-                <div class="absolute -top-4 right-6 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold">
-                    أطلب الآن والدفع عند الاستلام
-                </div>
-                
-                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4 pt-4">
-                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                    <input type="hidden" name="subject" value="طلب جديد: Hoco J101B">
-
-                    <div>
-                        <label class="block text-sm font-bold mb-1">الاسم واللقب</label>
-                        <input type="text" name="name" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none" placeholder="اكتب اسمك هنا">
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-bold mb-1">رقم الهاتف</label>
-                        <input type="tel" name="phone" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none" placeholder="0XXXXXXXXX">
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-bold mb-1">الولاية</label>
-                        <select name="wilaya" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl outline-none">
-                            <option value="">-- اختر الولاية --</option>
-                            <option value="الجزائر">الجزائر</option>
-                            <option value="المسيلة">المسيلة</option>
-                            <option value="وهران">وهران</option>
-                            <option value="سطيف">سطيف</option>
-                            </select>
-                    </div>
-
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-2xl text-xl shadow-lg transform transition active:scale-95">
-                        تأكيد الطلب 
-                    </button>
-                    
-                    <p class="text-center text-xs text-gray-400 mt-2">
-                        سنتصل بك لتأكيد الطلب قبل الإرسال
-                    </p>
-                </form>
-            </div>
-        </section>
-
-        <section class="p-4 mt-6">
-            <h3 class="font-bold text-center mb-4">آراء الزبائن ⭐⭐⭐⭐⭐</h3>
-            <div class="bg-white p-4 rounded-xl shadow-sm mb-3 italic text-sm">
-                "الباور بانك ممتاز، يشحن بسرعة وسعته حقيقية. التوصيل كان سريع للمسيلة."
-                <p class="font-bold mt-2 text-blue-600">- أحمد ب.</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-sm italic text-sm">
-                "سلعة أصلية ما شاء الله، جربتها مع آيفون 13 شحن سريع جداً."
-                <p class="font-bold mt-2 text-blue-600">- سارة م.</p>
-            </div>
-        </section>
-
-    </main>
-
-    <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md md:hidden">
-        <a href="#order-form" class="block w-full bg-orange-500 text-white text-center font-bold py-4 rounded-xl shadow-lg">
-            إشتري الآن - الدفع عند الاستلام
-        </a>
+<!-- ████ HEADER ████ -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">
+        <!-- 
+          🖼️ IMAGE: ضع شعارك هنا
+          <img src="/images/logo.webp" alt="اسم متجرك" width="140" height="40" />
+        -->
+        <span class="logo-text">⚡ متجرك</span>
+      </div>
+      <div class="header-badges">
+        <span class="badge badge-green">
+          <span>✓</span> دفع عند الاستلام
+        </span>
+        <span class="badge badge-amber">
+          <span>🚚</span> توصيل سريع
+        </span>
+      </div>
     </div>
+  </div>
+</header>
 
-</body>
-</html>
+<!-- ████ HERO ████ -->
+<section class="hero-section" aria-label="عرض المنتج الرئيسي">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Hero Text -->
+      <div class="hero-content">
+        <div class="hero-badges">
+          <span class="badge badge-red">🔥 عرض محدود</span>
+          <span class="badge badge-amber">⚡ شحن سريع 22.5W</span>
+        </div>
+
+        <h1 class="hero-title">
+          باور بانك
+          <span class="brand-highlight">HOCO J101B</span>
+          <br />
+          <span class="capacity-tag">30000mAh</span>
+          بطاقة خرافية!
+        </h1>
+
+        <p class="hero-desc">
+          الرفيق المثالي للتنقل — يشحن هاتفك أكثر من <strong>6 مرات</strong>
+          بتقنية الشحن السريع 22.5W. منتج أصلي مضمون، يوصلك لكل ولايات الجزائر
+          بالدفع عند الاستلام.
+        </p>
+
+        <!-- Price Block -->
+        <div class="price-block">
+          <div class="price-row">
+            <span class="price-current">{PRODUCT.price.toLocaleString('ar-DZ')} {PRODUCT.currency}</span>
+            <span class="price-old">{PRODUCT.oldPrice.toLocaleString('ar-DZ')} {PRODUCT.currency}</span>
+            <span class="price-badge">وفر {PRODUCT.discount}%</span>
+          </div>
+          <p class="price-note">
+            💳 الدفع نقداً عند استلام الطرد — لا حاجة لبطاقة بنكية
+          </p>
+        </div>
+
+        <!-- Trust Row -->
+        <div class="trust-row">
+          <div class="trust-item">
+            <span class="trust-icon">🚚</span>
+            <div>
+              <strong>توصيل سريع</strong>
+              <small>24 - 72 ساعة</small>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">📦</span>
+            <div>
+              <strong>تغليف محكم</strong>
+              <small>وصول آمن 100%</small>
+            </div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">🛡️</span>
+            <div>
+              <strong>ضمان أصالة</strong>
+              <small>منتج أصلي مضمون</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stock Warning -->
+        <div class="stock-warning" role="alert">
+          <span class="stock-dot"></span>
+          <span>⚠️ متبقي <strong>{PRODUCT.stock} قطعة</strong> فقط في المخزن — اطلب قبل النفاد!</span>
+        </div>
+
+        <!-- CTA Button -->
+        <a href="#order-form" class="btn-primary hero-cta" id="hero-cta-btn">
+          <span>🛒</span>
+          اطلب الآن — الدفع عند الاستلام
+        </a>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="hero-image-wrap" aria-hidden="true">
+        <div class="hero-image-glow"></div>
+        <!--
+          🖼️ IMAGE GUIDE:
+          ضع صورة المنتج الرئيسية (PNG أو WebP بخلفية شفافة أو داكنة)
+          الأبعاد المثالية: 600×600 بكسل
+          المسار: /images/product-main.webp
+          
+          <img
+            src="/images/product-main.webp"
+            alt="باور بانك HOCO J101B Astute 30000mAh"
+            width="560"
+            height="560"
+            fetchpriority="high"
+            class="hero-img"
+          />
+        -->
+        <div class="hero-img-placeholder" aria-label="صورة المنتج">
+          <div class="placeholder-icon">🔋</div>
+          <p>أضف صورة المنتج هنا<br /><code>/images/product-main.webp</code></p>
+        </div>
+
+        <!-- Floating badges on image -->
+        <div class="float-badge float-top">
+          <span>⚡ 22.5W</span>
+        </div>
+        <div class="float-badge float-bottom">
+          <span>30000mAh</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ████ PRODUCT IMAGES GALLERY ████ -->
+<section class="gallery-section section" aria-label="صور المنتج">
+  <div class="container">
+    <div class="section-header">
+      <h2>شاهد المنتج عن قرب</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="gallery-grid">
+      <!--
+        🖼️ IMAGE GUIDE — صور إضافية:
+        ضع 4 صور من زوايا مختلفة للمنتج
+        الأبعاد: 400×400 بكسل، صيغة WebP
+        
+        <img src="/images/product-angle-1.webp" alt="باور بانك HOCO J101B - منفذ USB-C" class="gallery-img" loading="lazy" />
+        <img src="/images/product-angle-2.webp" alt="باور بانك HOCO J101B - شاشة LED" class="gallery-img" loading="lazy" />
+        <img src="/images/product-angle-3.webp" alt="باور بانك HOCO J101B - المنافذ" class="gallery-img" loading="lazy" />
+        <img src="/images/product-angle-4.webp" alt="باور بانك HOCO J101B - الحجم" class="gallery-img" loading="lazy" />
+      -->
+      {['زاوية أمامية', 'شاشة LED', 'المنافذ', 'المنتج مفتوح'].map((label) => (
+        <div class="gallery-placeholder">
+          <span>📷</span>
+          <p>{label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ████ FEATURES ████ -->
+<section class="features-section section" aria-label="مميزات المنتج">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">لماذا تختاره؟</p>
+      <h2>مميزات تجعله الأفضل في السوق</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="features-grid">
+      {FEATURES.map((f) => (
+        <article class="feature-card card" aria-label={f.title}>
+          <div class="feature-icon">{f.icon}</div>
+          <h3 class="feature-title">{f.title}</h3>
+          <p class="feature-desc">{f.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ████ SPECS TABLE ████ -->
+<section class="specs-section section" aria-label="المواصفات التقنية">
+  <div class="container">
+    <div class="specs-inner">
+      <div class="section-header" style="text-align:right; margin-bottom:28px;">
+        <p class="section-eyebrow">المواصفات التقنية</p>
+        <h2>HOCO J101B Astute 30000mAh</h2>
+      </div>
+      <div class="specs-table" role="table" aria-label="جدول المواصفات">
+        {SPECS.map((s, i) => (
+          <div class="spec-row" role="row" style={i % 2 === 0 ? 'background:var(--bg-elevated)' : ''}>
+            <span class="spec-label" role="rowheader">{s.label}</span>
+            <span class="spec-value" role="cell">{s.value}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA inside specs -->
+      <div class="specs-cta">
+        <a href="#order-form" class="btn-primary" style="max-width:360px; margin:0 auto;">
+          <span>🛒</span> اطلب الآن بـ {PRODUCT.price.toLocaleString('ar-DZ')} {PRODUCT.currency} فقط
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ████ TESTIMONIALS ████ -->
+<section class="testimonials-section section" aria-label="آراء العملاء">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">آراء العملاء</p>
+      <h2>ماذا قالوا عن المنتج؟</h2>
+      <div class="divider"></div>
+      <div class="rating-summary" aria-label="متوسط التقييم">
+        <div class="stars" aria-label="5 من 5 نجوم">★★★★★</div>
+        <span>4.9/5 — من أكثر من 200 تقييم</span>
+      </div>
+    </div>
+    <div class="testimonials-grid">
+      {TESTIMONIALS.map((t) => (
+        <article class="testimonial-card card" aria-label={`تقييم ${t.name}`}>
+          <div class="testimonial-header">
+            <div class="avatar" aria-hidden="true">{t.avatar}</div>
+            <div>
+              <strong class="reviewer-name">{t.name}</strong>
+              <small class="reviewer-wilaya">📍 {t.wilaya}</small>
+            </div>
+            <div class="stars small" aria-label={`${t.rating} نجوم`}>
+              {'★'.repeat(t.rating)}
+            </div>
+          </div>
+          <p class="testimonial-text">"{t.text}"</p>
+          <small class="verified-badge">✅ مشتري موثق</small>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ████ OFFER COUNTDOWN ████ -->
+<section class="offer-section" aria-label="عرض مؤقت">
+  <div class="container">
+    <div class="offer-card">
+      <p class="offer-eyebrow">🔥 عرض خاص محدود الوقت</p>
+      <h2 class="offer-title">احصل عليه بسعر استثنائي الآن!</h2>
+      <div class="price-row-big">
+        <span class="price-big">{PRODUCT.price.toLocaleString('ar-DZ')} {PRODUCT.currency}</span>
+        <del class="price-del">{PRODUCT.oldPrice.toLocaleString('ar-DZ')} {PRODUCT.currency}</del>
+        <span class="discount-pill">وفر {PRODUCT.discount}%</span>
+      </div>
+      <div class="countdown-wrap" aria-live="polite" aria-atomic="true">
+        <p class="countdown-label">⏳ العرض ينتهي خلال:</p>
+        <div class="countdown" id="countdown">
+          <div class="count-block"><span id="cd-h">00</span><small>ساعة</small></div>
+          <div class="count-sep">:</div>
+          <div class="count-block"><span id="cd-m">00</span><small>دقيقة</small></div>
+          <div class="count-sep">:</div>
+          <div class="count-block"><span id="cd-s">00</span><small>ثانية</small></div>
+        </div>
+      </div>
+      <a href="#order-form" class="btn-primary" style="max-width:400px;">
+        🛒 اطلب الآن — الدفع نقداً عند الاستلام
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ████ ORDER FORM ████ -->
+<section class="order-section section" id="order-form" aria-label="نموذج الطلب">
+  <div class="container">
+    <div class="order-inner">
+
+      <!-- Form Header -->
+      <div class="section-header">
+        <p class="section-eyebrow">🚀 خطوة واحدة فقط</p>
+        <h2>أكمل طلبك الآن</h2>
+        <div class="divider"></div>
+        <p class="form-subtitle">
+          أملأ البيانات ونتصل بك لتأكيد الطلب — الدفع عند الاستلام 💳
+        </p>
+      </div>
+
+      <!-- Form -->
+      <form
+        id="cod-order-form"
+        class="order-form"
+        novalidate
+        aria-label="نموذج الطلب بالدفع عند الاستلام"
+      >
+        <input type="hidden" name="product" value="HOCO J101B Astute 30000mAh" />
+        <input type="hidden" name="price" value={PRODUCT.price} />
+        <input type="hidden" name="_timestamp" value="" />
+
+        <div class="form-grid">
+
+          <!-- Full Name -->
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="full-name" class="form-label">
+              <span>👤</span> الاسم الكامل <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="full-name"
+              name="name"
+              class="form-input"
+              placeholder="مثال: أحمد بن علي"
+              autocomplete="name"
+              maxlength="80"
+              required
+            />
+            <span class="form-error" id="name-error" role="alert">⚠ الرجاء إدخال الاسم الكامل</span>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phone" class="form-label">
+              <span>📱</span> رقم الهاتف <span class="required">*</span>
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-input"
+              placeholder="0X XX XX XX XX"
+              autocomplete="tel"
+              maxlength="13"
+              inputmode="numeric"
+              required
+            />
+            <span class="form-error" id="phone-error" role="alert">⚠ أدخل رقم هاتف صحيح (10 أرقام)</span>
+          </div>
+
+          <!-- Wilaya -->
+          <div class="form-group">
+            <label for="wilaya" class="form-label">
+              <span>📍</span> الولاية <span class="required">*</span>
+            </label>
+            <select
+              id="wilaya"
+              name="wilaya"
+              class="form-select"
+              required
+            >
+              <option value="" disabled selected>اختر ولايتك</option>
+              {WILAYAS.map((w, i) => (
+                <option value={w}>{String(i + 1).padStart(2, '0')} - {w}</option>
+              ))}
+            </select>
+            <span class="form-error" id="wilaya-error" role="alert">⚠ الرجاء اختيار الولاية</span>
+          </div>
+
+          <!-- Address -->
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="address" class="form-label">
+              <span>🏠</span> العنوان التفصيلي <span class="required">*</span>
+            </label>
+            <textarea
+              id="address"
+              name="address"
+              class="form-textarea"
+              placeholder="مثال: حي الرحمة، شارع ابن باديس، رقم 12..."
+              maxlength="300"
+              required
+            ></textarea>
+            <span class="form-error" id="address-error" role="alert">⚠ الرجاء إدخال العنوان التفصيلي</span>
+          </div>
+
+          <!-- Quantity -->
+          <div class="form-group">
+            <label for="quantity" class="form-label">
+              <span>🔢</span> الكمية
+            </label>
+            <select id="quantity" name="quantity" class="form-select">
+              <option value="1" selected>1 قطعة</option>
+              <option value="2">2 قطع</option>
+              <option value="3">3 قطع</option>
+            </select>
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group">
+            <label for="notes" class="form-label">
+              <span>📝</span> ملاحظات (اختياري)
+            </label>
+            <input
+              type="text"
+              id="notes"
+              name="notes"
+              class="form-input"
+              placeholder="أي تفاصيل إضافية..."
+              maxlength="200"
+            />
+          </div>
+
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary" aria-label="ملخص الطلب">
+          <div class="summary-row">
+            <span>المنتج:</span>
+            <strong>HOCO J101B Astute 30000mAh</strong>
+          </div>
+          <div class="summary-row">
+            <span>السعر:</span>
+            <strong class="summary-price">{PRODUCT.price.toLocaleString('ar-DZ')} {PRODUCT.currency}</strong>
+          </div>
+          <div class="summary-row">
+            <span>التوصيل:</span>
+            <strong class="text-green">مجاني 🚚</strong>
+          </div>
+          <div class="summary-row total-row">
+            <span>المجموع:</span>
+            <strong class="total-price" id="total-display">{PRODUCT.price.toLocaleString('ar-DZ')} {PRODUCT.currency}</strong>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-primary submit-btn" id="submit-btn" aria-label="إرسال الطلب">
+          <span class="btn-text">✅ أتمم طلبي الآن — الدفع عند الاستلام</span>
+          <span class="btn-loading" style="display:none;">
+            <span class="spinner"></span> جاري الإرسال...
+          </span>
+        </button>
+
+        <p class="form-disclaimer">
+          🔒 بياناتك محمية تماماً — سيتصل بك فريقنا لتأكيد الطلب
+        </p>
+      </form>
+
+      <!-- Success Message -->
+      <div class="success-msg" id="success-msg" role="alert" aria-live="polite" style="display:none;">
+        <div class="success-icon">🎉</div>
+        <h3>تم استلام طلبك بنجاح!</h3>
+        <p>شكراً لك! سيتصل بك أحد أعضاء فريقنا في أقرب وقت لتأكيد الطلب والتوصيل.</p>
+        <div class="success-detail">
+          <span>📦 المنتج: HOCO J101B Astute 30000mAh</span>
+          <span>🚚 التوصيل: خلال 24-72 ساعة</span>
+          <span>💳 الدفع: نقداً عند الاستلام</span>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-msg" id="error-msg" role="alert" aria-live="polite" style="display:none;">
+        <span>❌ حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى أو التواصل عبر واتساب.</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ████ FOOTER ████ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">⚡ متجرك</div>
+      <p class="footer-desc">
+        نوفر لك أفضل الإكسسوارات الإلكترونية بجودة مضمونة والدفع عند الاستلام
+        في جميع ولايات الجزائر.
+      </p>
+      <div class="footer-links">
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">شروط الاستخدام</a>
+        <a href="#">تواصل معنا</a>
+      </div>
+      <p class="footer-copy">© {new Date().getFullYear()} متجرك — جميع الحقوق محفوظة</p>
+    </div>
+  </div>
+</footer>
+
+</Layout>
+
+<!-- ████ STYLES ████ -->
+<style>
+
+/* ── Header ── */
+.site-header {
+  background: rgba(6,8,16,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 14px 0;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--amber);
+}
+.header-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ── Hero ── */
+.hero-section {
+  padding: 70px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(251,191,36,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.hero-title {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.brand-highlight {
+  display: block;
+  background: linear-gradient(135deg, var(--amber), #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.capacity-tag {
+  font-size: 0.65em;
+  background: var(--amber-dim);
+  color: var(--amber);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-sm);
+  padding: 2px 10px;
+  font-weight: 700;
+}
+.hero-desc {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-bottom: 28px;
+  line-height: 1.8;
+}
+.hero-desc strong { color: var(--amber); }
+
+/* Price */
+.price-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+.price-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+.price-current { font-size: 38px; font-weight: 900; color: var(--amber); font-family: var(--font-display); }
+.price-old { font-size: 20px; color: var(--text-muted); text-decoration: line-through; }
+.price-badge {
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+.price-note { font-size: 13px; color: var(--green); font-weight: 600; }
+
+/* Trust */
+.trust-row { display: flex; gap: 20px; margin-bottom: 24px; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 10px; }
+.trust-icon { font-size: 22px; }
+.trust-item div { display: flex; flex-direction: column; }
+.trust-item strong { font-size: 13px; }
+.trust-item small { font-size: 11px; color: var(--text-secondary); }
+
+/* Stock */
+.stock-warning {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.stock-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  animation: pulse-glow 1.8s infinite;
+}
+
+/* Hero CTA */
+.hero-cta {
+  font-size: 17px;
+  animation: pulse-glow 2.5s infinite;
+}
+
+/* Hero Image */
+.hero-image-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-image-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(251,191,36,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-img {
+  width: 100%;
+  max-width: 520px;
+  object-fit: contain;
+  animation: float 5s ease-in-out infinite;
+  filter: drop-shadow(0 20px 60px rgba(251,191,36,0.2));
+  position: relative;
+  z-index: 1;
+}
+.hero-img-placeholder {
+  width: 380px; height: 380px;
+  border: 2px dashed var(--border-glow);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  text-align: center;
+  animation: float 5s ease-in-out infinite;
+}
+.placeholder-icon { font-size: 64px; }
+.hero-img-placeholder code { font-size: 11px; opacity: 0.6; }
+.float-badge {
+  position: absolute;
+  background: linear-gradient(135deg, var(--amber), var(--amber-hot));
+  color: #000;
+  font-weight: 900;
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: 99px;
+  box-shadow: 0 4px 20px rgba(251,191,36,0.4);
+  z-index: 2;
+}
+.float-top { top: 10%; right: 0; }
+.float-bottom { bottom: 10%; left: 0; }
+
+/* ── Gallery ── */
+.gallery-section { background: var(--bg-card); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.gallery-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition: transform 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+.gallery-img:hover { transform: scale(1.03); border-color: var(--amber); }
+.gallery-placeholder {
+  aspect-ratio: 1;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.gallery-placeholder span { font-size: 28px; }
+
+/* ── Section Header ── */
+.section-header { text-align: center; margin-bottom: 48px; }
+.section-eyebrow {
+  color: var(--amber);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+h2 { font-size: clamp(22px, 3.5vw, 36px); }
+
+/* ── Features ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.feature-card { transition: border-color 0.3s, transform 0.3s; }
+.feature-card:hover { border-color: var(--amber-hot); transform: translateY(-4px); }
+.feature-icon { font-size: 36px; margin-bottom: 14px; }
+.feature-title { font-size: 16px; margin-bottom: 8px; }
+.feature-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+/* ── Specs ── */
+.specs-section { background: var(--bg-card); }
+.specs-inner { max-width: 800px; margin: 0 auto; }
+.specs-table { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); margin-bottom: 32px; }
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.spec-row:last-child { border-bottom: none; }
+.spec-label { color: var(--text-secondary); font-size: 14px; font-weight: 600; }
+.spec-value { font-weight: 700; font-size: 14px; text-align: left; direction: ltr; }
+.specs-cta { display: flex; }
+
+/* ── Testimonials ── */
+.testimonials-section { background: var(--bg-card); }
+.rating-summary { display: flex; align-items: center; gap: 12px; justify-content: center; margin-top: 12px; font-size: 15px; color: var(--text-secondary); }
+.stars { color: var(--amber); font-size: 22px; letter-spacing: 2px; }
+.stars.small { font-size: 16px; letter-spacing: 1px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.testimonial-card { display: flex; flex-direction: column; gap: 14px; }
+.testimonial-header { display: flex; align-items: center; gap: 12px; }
+.avatar { font-size: 32px; }
+.reviewer-name { display: block; font-size: 15px; }
+.reviewer-wilaya { display: block; font-size: 12px; color: var(--text-muted); }
+.testimonial-header .stars { margin-right: auto; }
+.testimonial-text { color: var(--text-secondary); font-size: 14px; line-height: 1.8; font-style: italic; }
+.verified-badge { color: var(--green); font-size: 12px; font-weight: 600; }
+
+/* ── Offer ── */
+.offer-section { padding: 80px 0; background: linear-gradient(135deg, #0d1120 0%, #131929 100%); }
+.offer-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-glow);
+  border-radius: var(--radius-xl);
+  padding: 56px 40px;
+  text-align: center;
+  box-shadow: var(--shadow-amber);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.offer-eyebrow { font-size: 15px; color: var(--amber); font-weight: 700; }
+.offer-title { font-size: clamp(22px, 4vw, 36px); }
+.price-row-big { display: flex; align-items: center; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.price-big { font-size: 52px; font-weight: 900; color: var(--amber); font-family: var(--font-display); }
+.price-del { font-size: 24px; color: var(--text-muted); }
+.discount-pill { background: var(--red); color: #fff; font-weight: 900; font-size: 16px; padding: 6px 18px; border-radius: 99px; }
+.countdown-wrap { text-align: center; }
+.countdown-label { font-size: 14px; color: var(--text-secondary); margin-bottom: 14px; }
+.countdown { display: flex; align-items: center; gap: 8px; justify-content: center; }
+.count-block {
+  background: var(--bg-deep);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.count-block span { font-size: 36px; font-weight: 900; color: var(--amber); font-family: var(--font-display); line-height: 1; }
+.count-block small { font-size: 11px; color: var(--text-muted); }
+.count-sep { font-size: 32px; font-weight: 900; color: var(--amber); }
+
+/* ── Order Form ── */
+.order-section { background: var(--bg-card); }
+.order-inner { max-width: 720px; margin: 0 auto; }
+.form-subtitle { color: var(--text-secondary); font-size: 15px; margin-top: 6px; }
+.order-form { display: flex; flex-direction: column; gap: 20px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Order Summary */
+.order-summary {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.summary-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+.summary-price { color: var(--amber); font-size: 16px; }
+.text-green { color: var(--green); }
+.total-row { border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px; font-size: 16px; }
+.total-price { color: var(--amber); font-size: 22px; }
+
+/* Submit */
+.submit-btn { font-size: 18px; }
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid rgba(0,0,0,0.3);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+.form-disclaimer { font-size: 12px; color: var(--text-muted); text-align: center; }
+
+/* Success / Error */
+.success-msg {
+  background: var(--green-dim);
+  border: 1.5px solid rgba(34,197,94,0.4);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  animation: fadeInUp 0.5s ease;
+}
+.success-icon { font-size: 56px; }
+.success-msg h3 { font-size: 24px; color: var(--green); }
+.success-msg p { color: var(--text-secondary); }
+.success-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  background: rgba(0,0,0,0.3);
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  width: 100%;
+  text-align: right;
+}
+.error-msg {
+  background: var(--red-dim);
+  border: 1.5px solid rgba(239,68,68,0.4);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--red);
+  animation: fadeInUp 0.4s ease;
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 32px;
+}
+.footer-inner { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.footer-logo { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: var(--amber); }
+.footer-desc { font-size: 14px; color: var(--text-secondary); max-width: 480px; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+.footer-links a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
+.footer-links a:hover { color: var(--amber); }
+.footer-copy { font-size: 12px; color: var(--text-muted); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-image-wrap { order: -1; }
+  .hero-img-placeholder { width: 260px; height: 260px; }
+  .float-badge { display: none; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-group[style*="grid-column"] { grid-column: auto; }
+  .offer-card { padding: 36px 20px; }
+  .count-block { padding: 12px 16px; min-width: 60px; }
+  .count-block span { font-size: 28px; }
+  .price-big { font-size: 38px; }
+  .trust-row { flex-direction: column; gap: 12px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .spec-value { text-align: right; direction: rtl; font-size: 13px; }
+  .header-badges { display: none; }
+}
+</style>
+
+<!-- ████ SCRIPTS ████ -->
+<script define:vars={{ PRODUCT_PRICE: PRODUCT.price }}>
+
+// ══ Countdown Timer ══
+(function () {
+  const end = new Date();
+  end.setHours(23, 59, 59, 0);
+  if (new Date() > end) end.setDate(end.getDate() + 1);
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const now  = new Date();
+    const diff = Math.max(0, end - now);
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const hEl = document.getElementById('cd-h');
+    const mEl = document.getElementById('cd-m');
+    const sEl = document.getElementById('cd-s');
+    if (hEl) hEl.textContent = pad(h);
+    if (mEl) mEl.textContent = pad(m);
+    if (sEl) sEl.textContent = pad(s);
+    if (diff > 0) requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+// ══ Dynamic Total ══
+(function () {
+  const qtyEl   = document.getElementById('quantity');
+  const totalEl = document.getElementById('total-display');
+  if (!qtyEl || !totalEl) return;
+  qtyEl.addEventListener('change', () => {
+    const qty   = parseInt(qtyEl.value, 10);
+    const total = qty * PRODUCT_PRICE;
+    totalEl.textContent = total.toLocaleString('ar-DZ') + ' دج';
+  });
+})();
+
+// ══ Phone Format ══
+(function () {
+  const ph = document.getElementById('phone');
+  if (!ph) return;
+  ph.addEventListener('input', () => {
+    ph.value = ph.value.replace(/[^0-9+\s]/g, '').slice(0, 13);
+  });
+})();
+
+// ══ Form Validation & Submit ══
+(function () {
+  const form      = document.getElementById('cod-order-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const successEl = document.getElementById('success-msg');
+  const errorEl   = document.getElementById('error-msg');
+
+  if (!form) return;
+
+  // Set timestamp
+  const tsInput = form.querySelector('[name="_timestamp"]');
+  if (tsInput) tsInput.value = new Date().toISOString();
+
+  // ── Validators ──
+  const rules = {
+    name:    { el: 'full-name',  err: 'name-error',    fn: v => v.trim().length >= 3 },
+    phone:   { el: 'phone',      err: 'phone-error',   fn: v => /^(0\d{9}|(\+213)\d{9})$/.test(v.trim().replace(/\s/g,'')) },
+    wilaya:  { el: 'wilaya',     err: 'wilaya-error',  fn: v => v !== '' },
+    address: { el: 'address',    err: 'address-error', fn: v => v.trim().length >= 10 },
+  };
+
+  function validateField(key) {
+    const rule = rules[key];
+    const el   = document.getElementById(rule.el);
+    const err  = document.getElementById(rule.err);
+    if (!el || !err) return true;
+    const valid = rule.fn(el.value);
+    el.classList.toggle('error', !valid);
+    err.classList.toggle('visible', !valid);
+    return valid;
+  }
+
+  // Live validation on blur
+  Object.keys(rules).forEach(key => {
+    const el = document.getElementById(rules[key].el);
+    if (el) el.addEventListener('blur', () => validateField(key));
+  });
+
+  // ── Submit ──
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Validate all
+    const valid = Object.keys(rules).map(validateField).every(Boolean);
+    if (!valid) {
+      const firstErr = form.querySelector('.form-input.error, .form-select.error, .form-textarea.error');
+      firstErr?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Loading state
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoad = submitBtn.querySelector('.btn-loading');
+    submitBtn.disabled = true;
+    if (btnText) btnText.style.display = 'none';
+    if (btnLoad) btnLoad.style.display = 'flex';
+
+    try {
+      const data = Object.fromEntries(new FormData(form));
+
+      const res = await fetch('/api/order', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        if (successEl) successEl.style.display = 'flex';
+        successEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // FB Pixel Purchase event
+        if (typeof fbq !== 'undefined') {
+          const qty = parseInt(data.quantity || '1', 10);
+          fbq('track', 'Purchase', {
+            value:    qty * PRODUCT_PRICE,
+            currency: 'DZD',
+            content_name: 'HOCO J101B Astute 30000mAh',
+          });
+        }
+      } else {
+        throw new Error('Server error: ' + res.status);
+      }
+    } catch (err) {
+      console.error('Order submit error:', err);
+      if (errorEl) errorEl.style.display = 'block';
+      errorEl?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } finally {
+      submitBtn.disabled = false;
+      if (btnText) btnText.style.display = '';
+      if (btnLoad) btnLoad.style.display = 'none';
+    }
+  });
+})();
+</script>
