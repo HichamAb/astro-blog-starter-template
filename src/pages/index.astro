@@ -1,50 +1,131 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+// كود Astro
+const productName = "Power Bank Hoco J101B Astute";
+const price = "4900 دج";
+const oldPrice = "6500 دج";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{productName} - أطلب الآن</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50 p-4 text-center">
+        <h1 class="text-xl font-black text-blue-700">TECH-STORE DZ</h1>
+    </nav>
+
+    <main class="max-w-2xl mx-auto pb-20">
+        
+        <section class="bg-white p-4">
+            <div class="rounded-2xl overflow-hidden shadow-sm mb-4">
+                <img src="/hoco-j101.jpg" alt={productName} class="w-full h-auto object-cover">
+            </div>
+            <h2 class="text-2xl font-black mb-2 leading-tight">{productName} 30000mAh (22.5W)</h2>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl font-bold text-green-600">{price}</span>
+                <span class="text-gray-400 line-through text-lg">{oldPrice}</span>
+                <span class="bg-red-100 text-red-600 px-2 py-1 rounded-md text-sm font-bold">تخفيض 25%</span>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+                لا تقلق بعد الآن من نفاذ بطارية هاتفك! مع باور بانك Hoco العملاق بسعة 30 ألف mAh، يمكنك شحن هاتفك أكثر من 6 مرات بسرعة فائقة بفضل تقنية 22.5W.
+            </p>
+        </section>
+
+        <section class="p-4 space-y-3">
+            <h3 class="font-bold text-lg mb-2">لماذا تختار هذا المنتج؟</h3>
+            <div class="grid grid-cols-1 gap-3">
+                <div class="flex items-start gap-3 bg-blue-50 p-3 rounded-xl border border-blue-100">
+                    <span class="text-2xl">🔋</span>
+                    <div>
+                        <p class="font-bold">سعة عملاقة 30000mAh</p>
+                        <p class="text-sm text-gray-600">تكفيك لعدة أيام من الاستخدام المتواصل.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 bg-orange-50 p-3 rounded-xl border border-orange-100">
+                    <span class="text-2xl">⚡</span>
+                    <div>
+                        <p class="font-bold">شحن سريع جداً 22.5W</p>
+                        <p class="text-sm text-gray-600">يدعم تقنيات PD 3.0 و QC 3.0 لشحن أجهزتك في وقت قياسي.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 bg-green-50 p-3 rounded-xl border border-green-100">
+                    <span class="text-2xl">📱</span>
+                    <div>
+                        <p class="font-bold">3 مخارج للشحن</p>
+                        <p class="text-sm text-gray-600">اشحن 3 أجهزة في وقت واحد (2 USB + 1 Type-C).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="order-form" class="p-4 mt-4">
+            <div class="bg-white p-6 rounded-3xl shadow-xl border-2 border-blue-600 relative">
+                <div class="absolute -top-4 right-6 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                    أطلب الآن والدفع عند الاستلام
+                </div>
+                
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4 pt-4">
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="طلب جديد: Hoco J101B">
+
+                    <div>
+                        <label class="block text-sm font-bold mb-1">الاسم واللقب</label>
+                        <input type="text" name="name" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none" placeholder="اكتب اسمك هنا">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold mb-1">رقم الهاتف</label>
+                        <input type="tel" name="phone" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none" placeholder="0XXXXXXXXX">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold mb-1">الولاية</label>
+                        <select name="wilaya" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl outline-none">
+                            <option value="">-- اختر الولاية --</option>
+                            <option value="الجزائر">الجزائر</option>
+                            <option value="المسيلة">المسيلة</option>
+                            <option value="وهران">وهران</option>
+                            <option value="سطيف">سطيف</option>
+                            </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-2xl text-xl shadow-lg transform transition active:scale-95">
+                        تأكيد الطلب 
+                    </button>
+                    
+                    <p class="text-center text-xs text-gray-400 mt-2">
+                        سنتصل بك لتأكيد الطلب قبل الإرسال
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <section class="p-4 mt-6">
+            <h3 class="font-bold text-center mb-4">آراء الزبائن ⭐⭐⭐⭐⭐</h3>
+            <div class="bg-white p-4 rounded-xl shadow-sm mb-3 italic text-sm">
+                "الباور بانك ممتاز، يشحن بسرعة وسعته حقيقية. التوصيل كان سريع للمسيلة."
+                <p class="font-bold mt-2 text-blue-600">- أحمد ب.</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm italic text-sm">
+                "سلعة أصلية ما شاء الله، جربتها مع آيفون 13 شحن سريع جداً."
+                <p class="font-bold mt-2 text-blue-600">- سارة م.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md md:hidden">
+        <a href="#order-form" class="block w-full bg-orange-500 text-white text-center font-bold py-4 rounded-xl shadow-lg">
+            إشتري الآن - الدفع عند الاستلام
+        </a>
+    </div>
+
+</body>
 </html>
